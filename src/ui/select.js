@@ -10,15 +10,16 @@ export class Select extends BaseElement {
   }
 
   getElementString() {
-    let placeholderTag = `<option value="">${this.placeholder}</option>`;
+    let placeholderTag = (this.placeholder) ? `<option value="">${this.placeholder}</option>` : '';
     let id = this._id;
     let optionsTag = ``;
     for(let option of this.options){
-      optionsTag += `<option value="${option.id}">${option.name} ${option.count}</option>`
+      let optionCount = (option.count) ? ` ( ${option.count} )` : '';
+      optionsTag += `<option value="${option.id}">${option.name}${optionCount}</option>`
     }
 
-    return `<section id="filter-${id}">
-                    <div id="filter-${id}" class="section-selects-content ">
+    return `<section id="filter-${id}-section">
+                    <div id="filter-${id}-div" class="section-selects-content ">
                         <label for="filter-${id}">
                             ${this.title}
                         </label>
