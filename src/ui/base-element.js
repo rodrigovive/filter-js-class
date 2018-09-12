@@ -6,7 +6,7 @@ export class BaseElement {
   }
   appentToElement(el){
     this.createElement()
-    el.append(this.element)
+    el.after(this.element)
   }
 
   createElement(){

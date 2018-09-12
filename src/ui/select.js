@@ -1,6 +1,6 @@
 import {BaseElement} from './base-element.js';
 
-export class Select extends BaseElement() {
+export class Select extends BaseElement {
   constructor(id, title, placeholder, data) {
     super();
     this.title = title;
@@ -13,8 +13,8 @@ export class Select extends BaseElement() {
     let placeholderTag = `<option value="">${this.placeholder}</option>`;
     let id = this._id;
     let optionsTag = ``;
-    for(let option in this.options){
-      optionsTag += `<option value="${option.id}">${option.count}</option>`
+    for(let option of this.options){
+      optionsTag += `<option value="${option.id}">${option.name} ${option.count}</option>`
     }
 
     return `<section id="filter-${id}">

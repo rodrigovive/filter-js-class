@@ -43,42 +43,31 @@
         <div class="scroll-mobile-filter">
 
             <div class="filter-content" id="filter-content-id">
+
+                <section id="filter-apto-credito-section">
+                    <div data-url="" class="apto-credito filter-shortcut filter-shortcut--not-applied">
+                        <label for="filter-apto-credito-checkbox" class="checkbox-cont">
+
+                            <span>Ver solo propiedades apto crédito</span>
+                            <input type="checkbox" name="filter-apto-credito-checkbox" id="filter-apto-credito-checkbox">
+                            <div class="cbx-status"></div>
+                        </label>
+                    </div>
+                </section>
+
                 <section id="filter-operation-type-section">
                     <div id="filter-operation-type-content" class="section-selects-content ">
-                        <label for="filter-operation-type-select">
-                            Localidad
+                        <label for="filter-operation-type">
+                            Tipo de Operación
                         </label>
                         <select tabindex="-1" name="filter-operation-type" id="filter-operation-type-select" data-form="tipoDeOperacion">
-                            <option value="">Selecciona una localidad</option>
+                            <option value="">Selecciona una operación</option>
                             <option class="filter-operation-type" value="1">Compra </option>
                             <option class="filter-operation-type" value="2">Alquiler </option>
                             <option class="filter-operation-type" value="3">Alquiler Temporal </option>
                         </select>
                     </div>
                 </section>
-                <section id="filter-apto-credito-section">
-                    <div data-url="" class="apto-credito filter-shortcut filter-shortcut--not-applied">
-                        <label for="filter-apto-credito-checkbox" class="checkbox-cont">
-                            <input type="checkbox" name="filter-apto-credito-checkbox" id="filter-apto-credito-checkbox">
-                            <div class="cbx-status"></div>
-                            <span>Ver solo propiedades apto crédito</span>
-                        </label>
-                    </div>
-                </section>
-
-
-                <section id="filter-localidad-section">
-                    <div id="filter-localidad-content" class="section-selects-content">
-                        <label for="filter-localidad-select">
-                            Ubicaciones
-                        </label>
-                        <select tabindex="-1" name="filter-localidad" id="filter-localidad-select">
-                            <option value="">Seleccione una ubicación</option>
-
-                        </select>
-                    </div>
-                </section>
-
 
                 <section id="filter-property-type">
                     <div id="filter-property-type-content" class="section-selects-content ">
@@ -95,126 +84,6 @@
                             <option value="7">Local </option>
                             <option value="5">Oficina </option>
 
-                        </select>
-                    </div>
-                </section>
-
-
-                <section id="filter-range-price-ars">
-                    <div id="filter-range-price-ars-content" class="section-selects-content ">
-                        <label for="filter-range-price-ars">
-                            Rango de Precio
-                        </label>
-                        <select tabindex="-1" name="filter-range-price-ars" id="filter-range-price-ars-select">
-                            <option value="">Seleccionar monto</option>
-                            <option value="0-10000"> 0 > 10.000 ARS</option>
-                            <option value="10000-20000"> 10.001 > 20.000 ARS</option>
-                            <option value="20000-30000"> 20.001 > 30.000 ARS</option>
-                            <option value="30000-40000"> 30.001 > 40.000 ARS</option>
-                            <option value="+40000"> + 40.000 ARS</option>
-                        </select>
-                    </div>
-                </section>
-
-
-                <section id="filter-range-price-dollars">
-                    <div id="filter-range-price-dollars-content" class="section-selects-content ">
-                        <label for="filter-range-price-dollars">
-                            Rango de Precio
-                        </label>
-                        <select tabindex="-1" name="filter-range-price-dollars" id="filter-range-price-dollars-select">
-                            <option value="">Seleccionar monto</option>
-                            <option value="0-100000"> 0 > 100.000 U$S</option>
-                            <option value="100000-250000"> 100.001 > 250.000 U$S</option>
-                            <option value="250000-500000"> 250.001 > 500.000 U$S</option>
-                            <option value="500000-750000"> 500.001 > 750.000 U$S</option>
-                            <option value="750000-1000000"> 750.001 > 1.000.000 U$S</option>
-                            <option value="+1000000"> +1.000.000 U$S</option>
-                        </select>
-                    </div>
-                </section>
-
-
-                <section id="filter-roofed-surface">
-                    <div id="filter-roofed-surface-content" class="section-selects-content ">
-                        <label for="filter-roofed-surface">
-                            Superficie Cubierta
-                        </label>
-                        <select tabindex="-1" name="filter-roofed-surface" id="filter-roofed-surface-select">
-                            <option value="">Seleccionar opción</option>
-                            <option value="0-240">0-240 m² </option>
-                            <option value="240-480">240-480 m² </option>
-                            <option value="480-800">480-800 m² </option>
-                            <option value="800">800 m² a más </option>
-                        </select>
-                    </div>
-                </section>
-
-
-
-                <section id="filter-surface">
-                    <div id="filter-surface-content" class="section-selects-content ">
-                        <label for="filter-surface">
-                            Superficie del Lote
-                        </label>
-                        <select tabindex="-1" name="filter-surface" id="filter-surface-select">
-                            <option value="">Seleccionar opción</option>
-                            <option value="0-400"> 0-400 m² </option>
-                            <option value="400-800"> 400-800 m²</option>
-                            <option value="800-1200"> 800-1200 m²</option>
-                        </select>
-                    </div>
-                </section>
-
-                <!-- Toggle 4 -->
-                <!-- OPCIONES SOLO VISIBLES PARA DEPARTAMENTOS SEA CUAL FUERE EL TIPO DE OPERACION -->
-                <section id="filter-envs">
-                    <div id="filter-envs-content" class="section-selects-content ">
-                        <label for="filter-envs">
-                            Ambientes
-                        </label>
-                        <select tabindex="-1" name="filter-envs" id="filter-envs-select">
-                            <option value="">Seleccionar opción</option>
-                            <option value="1"> 1 Ambientes </option>
-                            <option value="2"> 2 Ambientes </option>
-                            <option value="3"> 3 Ambientes </option>
-                            <option value="4"> 4 Ambientes </option>
-                        </select>
-                    </div>
-                </section>
-
-
-                <!-- Toggle 5 -->
-                <!-- OPCIONES SOLO VISIBLES PARA CASAS SEA CUAL FUERE EL TIPO DE OPERACION -->
-
-                <section id="filter-rooms">
-                    <div id="filter-rooms-content" class="section-selects-content ">
-                        <label for="filter-rooms">
-                            Dormitorios
-                        </label>
-                        <select tabindex="-1" name="filter-rooms" id="filter-rooms-select">
-                            <option value="">Seleccionar opción</option>
-                            <option value="1"> 1 Dormitorio </option>
-                            <option value="2"> 2 Dormitorios </option>
-                            <option value="3"> 3 Dormitorios </option>
-                            <option value="4"> 4 Dormitorios </option>
-                            <option value="+5"> +5 Dormitorios </option>
-                        </select>
-                    </div>
-                </section>
-
-                <section id="filter-bathroom">
-                    <div id="filter-bathroom-content" class="section-selects-content ">
-                        <label for="filter-bathroom">
-                            Baños
-                        </label>
-                        <select tabindex="-1" name="filter-bathroom" id="filter-bathroom-select">
-                            <option value="">Seleccionar opción</option>
-                            <option value="1"> 1 Baños </option>
-                            <option value="2"> 2 Baños </option>
-                            <option value="3"> 3 Baños </option>
-                            <option value="4"> 4 Baños </option>
-                            <option value="+5"> +5 Baños </option>
                         </select>
                     </div>
                 </section>
