@@ -9,11 +9,12 @@ import {age} from './services/age.js';
 import {priceDollar} from './services/range-price-dollar.js';
 import {priceArs} from './services/range-price-ars.js';
 import {aptoFilterFalse, aptoFilterTrue} from './actions/apto-filter.js';
-import {removeAll} from './actions/remove-filter.js';
+import {removeAll,removeElementById} from './actions/remove-filter.js';
+import {getUrl} from './actions/url.js';
 
 $('#filter-content-id').on('change', '#filter-operation-type', function(e) {
-  $('#filter-content-id section').remove('#filter-range-price-dollar-section');
-  $('#filter-content-id section').remove('#filter-range-price-ars-section');
+  removeElementById('filter-range-price-dollar-section');
+  removeElementById('filter-range-price-ars-section');
   switch (this.value) {
     case '1': {
       let select = new Select('range-price-dollar', 'Rango Para Comprar',
@@ -33,9 +34,9 @@ $('#filter-content-id').on('change', '#filter-operation-type', function(e) {
 });
 
 $('#filter-content-id').on('change', '#filter-property-type', function(e) {
-  $('#filter-content-id section').remove('#filter-env-section');
-  $('#filter-content-id section').remove('#filter-suite-section');
-  $('#filter-content-id section').remove('#filter-bathroom-section');
+  removeElementById('filter-env-section');
+  removeElementById('filter-suite-section');
+  removeElementById('filter-bathroom-section');
   switch (this.value) {
     case '2': {
       let select = new Select('env', 'Ambientes', 'Seleccionar ambiente',
@@ -68,8 +69,8 @@ $('#filtros-btn-aplicar').on('click', function(e) {
   e.preventDefault();
   let section = $('#filter-content-id section');
   // let xd = Object.keys(section)
-  console.log(section);
-  // console.log(xd)
+  let x = getUrl()
+  window.alert(`La url es : ${x}`)
 
 });
 

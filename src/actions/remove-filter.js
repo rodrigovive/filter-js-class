@@ -9,4 +9,7 @@ export let removeAll = () => {
   $('#filter-content-id section').remove('#filter-operation-type-section');
   $('#filter-content-id section').remove('#filter-property-type-section');
 
-}
+};
+
+export let removeElementById = (element) => $('#filter-content-id section').
+    remove(`#${element}`);
