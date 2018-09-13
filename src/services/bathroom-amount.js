@@ -5,11 +5,18 @@ let bathroomAmountData = [];
 for(let data of summary.bathroom_amount){
 
   let {amount: id, count  } = data;
-  bathroomAmountData.push({
-    id,
-    count,
-    name: `${id} Bano(s)`
-  })
+  if(id < 5){
+    bathroomAmountData.push({
+      id,
+      count,
+      name: `${id} Bano(s)`
+    })
+  }
 }
+bathroomAmountData.push({
+  id: '+5',
+  count: '',
+  name: `+5 Bano(s)`
+})
 
 export let bathroomAmount = bathroomAmountData;

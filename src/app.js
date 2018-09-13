@@ -10,7 +10,7 @@ import {priceDollar} from './services/range-price-dollar.js';
 import {priceArs} from './services/range-price-ars.js';
 import {aptoFilterFalse, aptoFilterTrue} from './actions/apto-filter.js';
 import {removeAll,removeElementById} from './actions/remove-filter.js';
-import {getUrl,removeAllQuery} from './actions/url.js';
+import {getUrl,removeAllQuery, getParams} from './actions/url.js';
 
 $('#filter-content-id').on('change', '#filter-operation-type', function(e) {
   removeElementById('filter-range-price-dollar-section');
@@ -68,6 +68,7 @@ $('#filter-apto-credito-checkbox').on('change', function(e) {
 $('#filtros-btn-aplicar').on('click', function(e) {
   e.preventDefault();
   window.alert(`La url es : ${getUrl()}`)
+  console.log(getParams())
 
 });
 
