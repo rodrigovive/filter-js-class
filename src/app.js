@@ -1,59 +1,36 @@
 import $ from 'jquery';
-import {Select} from './ui/select.js';
-import {operations} from './services/operation.js';
-import {types} from './services/types.js';
-import {suiteAmount} from './services/suite-amount.js';
-import {roomAmount} from './services/room-amount.js';
-import {bathroomAmount} from './services/bathroom-amount.js';
-import {age} from './services/age.js';
-import {priceDollar} from './services/range-price-dollar.js';
-import {priceArs} from './services/range-price-ars.js';
 import {aptoFilterFalse, aptoFilterTrue} from './actions/apto-filter.js';
-import {removeAll,removeElementById} from './actions/remove-filter.js';
-import {getUrl,removeAllQuery, getParams} from './actions/url.js';
+import {removeAll, removeElementById} from './actions/remove-filter.js';
+import {getUrl, removeAllQuery, getParams} from './actions/url.js';
+import {
+  rangePriceArsUI,
+  rangePriceDollarUI,
+  envUI,
+  suiteUI,
+  baniosUI,
+} from './framework/predefinedUI.js';
+import {RulesFilter} from './framework/rules-filter.js';
+
+let operationFilter = new RulesFilter('operationType');
+operationFilter.addRule(1, rangePriceDollarUI);
+operationFilter.addRule(2, rangePriceArsUI);
+
+let propertyFilter = new RulesFilter('propertyType');
+propertyFilter.addRule(2, envUI);
+propertyFilter.addRule(3, suiteUI);
+propertyFilter.addRule(3, baniosUI);
 
 $('#filter-content-id').on('change', '#filter-operation-type', function(e) {
   removeElementById('filter-range-price-dollar-section');
   removeElementById('filter-range-price-ars-section');
-  switch (this.value) {
-    case '1': {
-      let select = new Select('range-price-dollar', 'Rango Para Comprar',
-          'Seleccione el monto',
-          priceDollar);
-      select.appentToElement($('section').last());
-      break;
-    }
-    case '2': {
-      let select = new Select('range-price-ars', 'Rango de Alquilar',
-          'Seleccione el monto',
-          priceArs);
-      select.appentToElement($('section').last());
-      break;
-    }
-  }
+  operationFilter.checkRule(this.value);
 });
 
 $('#filter-content-id').on('change', '#filter-property-type', function(e) {
   removeElementById('filter-env-section');
   removeElementById('filter-suite-section');
   removeElementById('filter-bathroom-section');
-  switch (this.value) {
-    case '2': {
-      let select = new Select('env', 'Ambientes', 'Seleccionar ambiente',
-          roomAmount);
-      select.appentToElement($('section').last());
-      break;
-    }
-    case '3': {
-      let select = new Select('suite', 'Dormitorios', 'Seleccionar dormitorios',
-          suiteAmount);
-      select.appentToElement($('section').last());
-      select = new Select('bathroom', 'Banos', 'Seleccionar banios',
-          bathroomAmount);
-      select.appentToElement($('section').last());
-      break;
-    }
-  }
+  propertyFilter.checkRule(this.value);
 });
 
 $('#filter-apto-credito-checkbox').on('change', function(e) {
@@ -67,15 +44,22 @@ $('#filter-apto-credito-checkbox').on('change', function(e) {
 
 $('#filtros-btn-aplicar').on('click', function(e) {
   e.preventDefault();
-  window.alert(`La url es : ${getUrl()}`)
-  console.log(getParams())
+  window.alert(`La url es : ${getUrl()}`);
 
 });
 
 $('#button-clear-filter').on('click', function(e) {
   e.preventDefault();
   removeAll();
-  removeAllQuery()
+  removeAllQuery();
   $('#filter-apto-credito-checkbox').prop('checked', false);
   aptoFilterFalse();
+});
+
+$(document).ready(function() {
+  let params = getParams();
+  if (params.operation_type) {
+    operationFilter.checkRule(params.operation_type);
+  }
+
 });

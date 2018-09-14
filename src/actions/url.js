@@ -52,7 +52,6 @@ export let getUrl = () => {
 };
 
 export let getParams= () => {
-  console.log(document.location.search);
   let queryParams = document.location.search
   if(document.location.search){
     let keyRegex = new RegExp('(?<=[\?\&])([a-zA-Z]*[^&]*)','gi')
@@ -60,7 +59,7 @@ export let getParams= () => {
     queryParams.match(keyRegex).map((val) => {
       let [query, value] = val.split('=')
       Object.assign(params,{
-        [query] : value
+        [decodeURIComponent(query)] : decodeURIComponent(value)
       })
     })
     return params;
