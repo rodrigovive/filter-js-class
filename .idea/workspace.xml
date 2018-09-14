@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9e61dcd-ed84-4891-8724-083bf244ea50" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/framework/predefinedUI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/framework/rules-filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/url.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -34,7 +31,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="rules-filter.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="rules-filter.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/framework/rules-filter.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="285">
@@ -73,7 +70,7 @@
           <file leaf-file-name="apto-filter.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/actions/apto-filter.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="630">
+                <state relative-caret-position="690">
                   <caret line="46" selection-start-line="46" selection-end-line="46" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
@@ -91,11 +88,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="630">
-                  <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+                <state relative-caret-position="90">
+                  <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
                 </state>
               </provider>
             </entry>
@@ -125,8 +122,8 @@
           <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="474">
-                  <caret line="61" column="51" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
+                <state relative-caret-position="262">
+                  <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -191,7 +188,6 @@
         <option value="$PROJECT_DIR$/src/services/range-price-dollar.js" />
         <option value="$PROJECT_DIR$/src/ui/base-element.js" />
         <option value="$PROJECT_DIR$/src/services/range-price-ars.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/ui/select.js" />
         <option value="$PROJECT_DIR$/src/classes.js" />
         <option value="$PROJECT_DIR$/src/classes/apto-filter.js" />
@@ -203,6 +199,7 @@
         <option value="$PROJECT_DIR$/src/framework/predefinedUI.js" />
         <option value="$PROJECT_DIR$/src/framework/rules-filter.js" />
         <option value="$PROJECT_DIR$/src/app.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -318,12 +315,12 @@
       <option name="presentableId" value="Default" />
       <updated>1536686971233</updated>
       <workItem from="1536686976867" duration="20454000" />
-      <workItem from="1536899644243" duration="2965000" />
+      <workItem from="1536899644243" duration="3316000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23419000" />
+    <option name="totallyTimeSpent" value="23770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2560" y="-96" width="2560" height="1080" extended-state="0" />
@@ -535,27 +532,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/apto-filter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -590,6 +570,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/apto-filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/framework/rules-filter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -597,13 +597,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="61" column="51" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
         </state>
       </provider>
     </entry>

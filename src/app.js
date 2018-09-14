@@ -8,6 +8,10 @@ import {
   envUI,
   suiteUI,
   baniosUI,
+  aptoOperationTypeUI,
+  aptoPropertyTypeUI,
+  operationTypeUI,
+  propertyTypeUI,
 } from './framework/predefinedUI.js';
 import {RulesFilter} from './framework/rules-filter.js';
 
@@ -19,6 +23,13 @@ let propertyFilter = new RulesFilter('propertyType');
 propertyFilter.addRule(2, envUI);
 propertyFilter.addRule(3, suiteUI);
 propertyFilter.addRule(3, baniosUI);
+
+let aptoFilter = new RulesFilter('aptoFilter');
+aptoFilter.addRule(1, aptoPropertyTypeUI);
+aptoFilter.addRule(1, aptoOperationTypeUI);
+aptoFilter.addRule(1, rangePriceDollarUI);
+aptoFilter.addRule(0, operationTypeUI);
+aptoFilter.addRule(0, propertyTypeUI);
 
 $('#filter-content-id').on('change', '#filter-operation-type', function(e) {
   removeElementById('filter-range-price-dollar-section');
@@ -35,11 +46,7 @@ $('#filter-content-id').on('change', '#filter-property-type', function(e) {
 
 $('#filter-apto-credito-checkbox').on('change', function(e) {
   removeAll();
-  if (this.checked) {
-    aptoFilterTrue();
-  } else {
-    aptoFilterFalse();
-  }
+  aptoFilter.checkRule(Number(this.checked))
 });
 
 $('#filtros-btn-aplicar').on('click', function(e) {
