@@ -9,13 +9,17 @@ export class Select extends BaseElement {
     this._id = id;
   }
 
+  get id() {
+    return `filter-${this._id}`;
+  }
+
   getElementString() {
     let placeholderTag = (this.placeholder) ? `<option value="">${this.placeholder}</option>` : '';
     let id = this._id;
     let optionsTag = ``;
     for(let option of this.options){
       let optionCount = (option.count) ? ` ( ${option.count} )` : '';
-      optionsTag += `<option value="${option.id}">${option.name}${optionCount}</option>`
+      optionsTag += `<option value="${option.id}">${option.name}</option>`
     }
 
     return `<section id="filter-${id}-section">

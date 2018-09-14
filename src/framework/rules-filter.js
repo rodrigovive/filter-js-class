@@ -1,23 +1,25 @@
 import $ from 'jquery';
 
 export class RulesFilter {
-  constructor(name){
+  constructor(name) {
     this.name = name;
     this.rules = [];
   }
 
-  addRule(value,select){
+  addRule(value, select) {
     this.rules.push({
-      value, select
-    })
+      value, select,
+    });
   }
 
-  checkRule(value){
+  checkRule(value) {
     this.rules.map((rule) => {
-      if(rule.value == value){
-        rule.select.appentToElement($('section').last());
+      if (rule.value == value) {
+        if ($(`#${rule.select.id}`).length == 0) {
+          rule.select.appentToElement($('section').last());
+        }
       }
-    })
+    });
   }
 
 }

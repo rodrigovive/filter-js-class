@@ -5,11 +5,20 @@ let roomAmountData = [];
 for(let data of summary.room_amount){
 
   let {amount: id, count  } = data;
-  roomAmountData.push({
-    id,
-    count,
-    name: `${id} Ambiente(s)`
-  })
+  if(id<5){
+    roomAmountData.push({
+      id,
+      count,
+      name: `${id} Ambiente(s)`
+    })
+  }
+
 }
+
+roomAmountData.push({
+  id: '+5',
+  count: '',
+  name: `+5 Ambiente(s)`
+})
 
 export let roomAmount = roomAmountData;

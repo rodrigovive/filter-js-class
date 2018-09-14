@@ -1,35 +1,24 @@
 import $ from 'jquery';
-import {aptoFilterFalse, aptoFilterTrue} from './actions/apto-filter.js';
 import {removeAll, removeElementById} from './actions/remove-filter.js';
 import {getUrl, removeAllQuery, getParams} from './actions/url.js';
-import {
-  rangePriceArsUI,
-  rangePriceDollarUI,
-  envUI,
-  suiteUI,
-  baniosUI,
-  aptoOperationTypeUI,
-  aptoPropertyTypeUI,
-  operationTypeUI,
-  propertyTypeUI,
-} from './framework/predefinedUI.js';
+import definedUI from './framework/predefinedUI.js';
 import {RulesFilter} from './framework/rules-filter.js';
 
 let operationFilter = new RulesFilter('operationType');
-operationFilter.addRule(1, rangePriceDollarUI);
-operationFilter.addRule(2, rangePriceArsUI);
+operationFilter.addRule(1, definedUI.getUI('rangePriceDollarUI'));
+operationFilter.addRule(2, definedUI.getUI('rangePriceArsUI'));
 
 let propertyFilter = new RulesFilter('propertyType');
-propertyFilter.addRule(2, envUI);
-propertyFilter.addRule(3, suiteUI);
-propertyFilter.addRule(3, baniosUI);
+propertyFilter.addRule(2, definedUI.getUI('envUI'));
+propertyFilter.addRule(3, definedUI.getUI('suiteUI'));
+propertyFilter.addRule(3, definedUI.getUI('baniosUI'));
 
 let aptoFilter = new RulesFilter('aptoFilter');
-aptoFilter.addRule(1, aptoPropertyTypeUI);
-aptoFilter.addRule(1, aptoOperationTypeUI);
-aptoFilter.addRule(1, rangePriceDollarUI);
-aptoFilter.addRule(0, operationTypeUI);
-aptoFilter.addRule(0, propertyTypeUI);
+aptoFilter.addRule(1, definedUI.getUI('aptoPropertyTypeUI'));
+aptoFilter.addRule(1, definedUI.getUI('aptoOperationTypeUI'));
+aptoFilter.addRule(1, definedUI.getUI('rangePriceDollarUI'));
+aptoFilter.addRule(0, definedUI.getUI('operationTypeUI'));
+aptoFilter.addRule(0, definedUI.getUI('propertyTypeUI'));
 
 $('#filter-content-id').on('change', '#filter-operation-type', function(e) {
   removeElementById('filter-range-price-dollar-section');
@@ -46,13 +35,13 @@ $('#filter-content-id').on('change', '#filter-property-type', function(e) {
 
 $('#filter-apto-credito-checkbox').on('change', function(e) {
   removeAll();
-  aptoFilter.checkRule(Number(this.checked))
+  removeAllQuery();
+  aptoFilter.checkRule(Number(this.checked));
 });
 
 $('#filtros-btn-aplicar').on('click', function(e) {
   e.preventDefault();
   window.alert(`La url es : ${getUrl()}`);
-
 });
 
 $('#button-clear-filter').on('click', function(e) {
@@ -60,13 +49,26 @@ $('#button-clear-filter').on('click', function(e) {
   removeAll();
   removeAllQuery();
   $('#filter-apto-credito-checkbox').prop('checked', false);
-  aptoFilterFalse();
+  aptoFilter.checkRule(0);
 });
 
 $(document).ready(function() {
   let params = getParams();
+
   if (params.operation_type) {
     operationFilter.checkRule(params.operation_type);
+  }
+  if (params.property_type) {
+    propertyFilter.checkRule(params.property_type);
+  }
+  if (params.envs) {
+    definedUI.appendUI('envUI');
+  }
+  if (params.bathrooms) {
+    definedUI.appendUI('baniosUI')
+  }
+  if(params.rooms){
+    definedUI.appendUI('suiteUI')
   }
 
 });
