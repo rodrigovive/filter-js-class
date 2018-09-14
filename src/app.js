@@ -69,7 +69,6 @@ $(document).ready(function() {
     definedUI.appendUI('envUI',params.envs);
   }
   if (params.bathrooms) {
-    console.log(params.bathrooms)
     definedUI.appendUI('baniosUI',params.bathrooms)
   }
   if(params.rooms){

@@ -37,7 +37,8 @@ class predefinedUI {
     }
   }
 
-  setValueUI(id, value) {
+  setValueUI(id, valueURI) {
+    let value = decodeURIComponent(valueURI);
     let ui = this.getUI(id);
     $(`#${ui.id}`).val(value);
 

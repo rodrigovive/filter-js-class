@@ -17,7 +17,6 @@ export class RulesFilter {
       if (rule.value == value) {
         if ($(`#${rule.select.id}`).length == 0) {
           rule.select.appentToElement($('section').last());
-          //$(`#${rule.select.id}`).val(value);
         }
       }
     });
