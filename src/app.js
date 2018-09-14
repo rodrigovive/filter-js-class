@@ -57,18 +57,23 @@ $(document).ready(function() {
 
   if (params.operation_type) {
     operationFilter.checkRule(params.operation_type);
+    definedUI.setValueUI('operationTypeUI',params.operation_type)
+
   }
   if (params.property_type) {
     propertyFilter.checkRule(params.property_type);
+    definedUI.setValueUI('propertyTypeUI',params.property_type)
+
   }
   if (params.envs) {
-    definedUI.appendUI('envUI');
+    definedUI.appendUI('envUI',params.envs);
   }
   if (params.bathrooms) {
-    definedUI.appendUI('baniosUI')
+    console.log(params.bathrooms)
+    definedUI.appendUI('baniosUI',params.bathrooms)
   }
   if(params.rooms){
-    definedUI.appendUI('suiteUI')
+    definedUI.appendUI('suiteUI',params.rooms)
   }
 
 });

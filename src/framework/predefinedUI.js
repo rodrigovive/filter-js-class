@@ -25,15 +25,30 @@ class predefinedUI {
     return ui[0].select;
   }
 
-  appendUI(name){
+  appendUI(name, value = false) {
     let ui = this._ui.filter((ui) => ui.name == name);
-    if(this.checkExistUI(ui[0].select.id)){
+    if (this.checkExistUI(ui[0].select.id)) {
+      this.setValueUIById(ui[0].select.id, value);
       return false;
     }
     ui[0].select.appentToElement($('section').last());
+    if (value !== false) {
+      this.setValueUIById(ui[0].select.id, value);
+    }
   }
-  checkExistUI(id){
-    let a = $(`#${id}`).length
+
+  setValueUI(id, value) {
+    let ui = this.getUI(id);
+    $(`#${ui.id}`).val(value);
+
+  }
+
+  setValueUIById(id, value) {
+    $(`#${id}`).val(value);
+  }
+
+  checkExistUI(id) {
+    let a = $(`#${id}`).length;
     return new Boolean(a);
   }
 }
