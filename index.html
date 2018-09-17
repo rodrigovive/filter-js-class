@@ -44,14 +44,36 @@
 
             <div class="filter-content" id="filter-content-id">
 
-                <section id="filter-apto-credito-section">
-                    <div data-url="" class="apto-credito filter-shortcut filter-shortcut--not-applied">
-                        <label for="filter-apto-credito-checkbox" class="checkbox-cont">
-
-                            <span>Ver solo propiedades apto crédito</span>
-                            <input type="checkbox" name="filter-apto-credito-checkbox" id="filter-apto-credito-checkbox">
-                            <div class="cbx-status"></div>
+                <section id="filter-location-section">
+                    <div id="filter-location-content" class="section-selects-content ">
+                        <label for="filter-location">
+                            Localidad
                         </label>
+                        <select tabindex="-1" name="filter-location" id="filter-location">
+                            <option value="">Selecciona una localidad</option>
+                            <option class="filter-location" value="24697">Centro</option>
+                            <option class="filter-location" value="25620">Tigre</option>
+
+                            <option class="filter-location" value="24682">Belgrano</option>
+                            <option class="filter-location" value="25469">San Isidro  </option>
+
+                        </select>
+                    </div>
+                </section>
+                
+                <section id="filter-sublocation-section">
+                    <div id="filter-sublocation-content" class="section-selects-content">
+                        <label for="filter-localidad">
+                            Sub Localidades
+                        </label>
+                        <select tabindex="-1" name="filter-sublocation" id="filter-sublocation">
+                            <option value="">Seleccione una ubicación</option>
+                            <option class="filter-sublocation" value="24697">Centro</option>
+                            <option class="filter-sublocation" value="25620">Tigre</option>
+
+                            <option class="filter-sublocation" value="24682">Belgrano</option>
+                            <option class="filter-sublocation" value="25469">San Isidro  </option>
+                        </select>
                     </div>
                 </section>
 

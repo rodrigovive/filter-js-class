@@ -8,7 +8,7 @@ import {types} from '../services/types.js';
 import {operations} from '../services/operation.js';
 import $ from 'jquery';
 
-class predefinedUI {
+export class predefinedUI {
   constructor() {
     this._ui = [];
   }
@@ -44,7 +44,7 @@ class predefinedUI {
 
   }
 
-  setValueUIById(id, value) {
+  static setValueUIById(id, value) {
     $(`#${id}`).val(value);
   }
 
@@ -112,4 +112,4 @@ definedUI.addUI('aptoPropertyTypeUI',
           },
         ]));
 
-export default definedUI;
+export let appUI = definedUI;

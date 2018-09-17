@@ -31,6 +31,8 @@ export let getUrl = () => {
   let operation = $('#filter-operation-type').val();
   let envs = $('#filter-env').val();
   let suite = $('#filter-suite').val();
+  let locationProperty = $('#filter-location').val();
+
   let priceDollar = $('#filter-range-price-dollar').val();
   let priceArs = $('#range-price-ars').val();
   if (bathroom) appendQuery('bathrooms', bathroom);
@@ -43,6 +45,7 @@ export let getUrl = () => {
     appendQuery('price_from',  rangeDollar[0]);
     if(rangeDollar.length > 1) appendQuery('price_to',  rangeDollar[1]);
   }
+  if(locationProperty) appendQuery('location', locationProperty);
   if (priceArs) {
     let rangeArs = priceArs.split('-');
     appendQuery('price_from',  priceArs[0]);
@@ -59,7 +62,7 @@ export let getParams= () => {
     queryParams.match(keyRegex).map((val) => {
       let [query, value] = val.split('=')
       Object.assign(params,{
-        [decodeURIComponent(query)] : decodeURIComponent(value)
+        [decodeURIComponent(query)] : decodeURIComponent(value).split(',')[0]
       })
     })
     return params;

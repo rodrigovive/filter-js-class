@@ -1,24 +1,24 @@
 import $ from 'jquery';
 import {removeAll, removeElementById} from './actions/remove-filter.js';
 import {getUrl, removeAllQuery, getParams} from './actions/url.js';
-import definedUI from './framework/predefinedUI.js';
+import {appUI,predefinedUI} from './framework/predefinedUI.js';
 import {RulesFilter} from './framework/rules-filter.js';
 
 let operationFilter = new RulesFilter('operationType');
-operationFilter.addRule(1, definedUI.getUI('rangePriceDollarUI'));
-operationFilter.addRule(2, definedUI.getUI('rangePriceArsUI'));
+operationFilter.addRule(1, appUI.getUI('rangePriceDollarUI'));
+operationFilter.addRule(2, appUI.getUI('rangePriceArsUI'));
 
 let propertyFilter = new RulesFilter('propertyType');
-propertyFilter.addRule(2, definedUI.getUI('envUI'));
-propertyFilter.addRule(3, definedUI.getUI('suiteUI'));
-propertyFilter.addRule(3, definedUI.getUI('baniosUI'));
+propertyFilter.addRule(2, appUI.getUI('envUI'));
+propertyFilter.addRule(3, appUI.getUI('suiteUI'));
+propertyFilter.addRule(3, appUI.getUI('baniosUI'));
 
 let aptoFilter = new RulesFilter('aptoFilter');
-aptoFilter.addRule(1, definedUI.getUI('aptoPropertyTypeUI'));
-aptoFilter.addRule(1, definedUI.getUI('aptoOperationTypeUI'));
-aptoFilter.addRule(1, definedUI.getUI('rangePriceDollarUI'));
-aptoFilter.addRule(0, definedUI.getUI('operationTypeUI'));
-aptoFilter.addRule(0, definedUI.getUI('propertyTypeUI'));
+aptoFilter.addRule(1, appUI.getUI('aptoPropertyTypeUI'));
+aptoFilter.addRule(1, appUI.getUI('aptoOperationTypeUI'));
+aptoFilter.addRule(1, appUI.getUI('rangePriceDollarUI'));
+aptoFilter.addRule(0, appUI.getUI('operationTypeUI'));
+aptoFilter.addRule(0, appUI.getUI('propertyTypeUI'));
 
 $('#filter-content-id').on('change', '#filter-operation-type', function(e) {
   removeElementById('filter-range-price-dollar-section');
@@ -57,22 +57,24 @@ $(document).ready(function() {
 
   if (params.operation_type) {
     operationFilter.checkRule(params.operation_type);
-    definedUI.setValueUI('operationTypeUI',params.operation_type)
+    appUI.setValueUI('operationTypeUI',params.operation_type)
 
   }
   if (params.property_type) {
     propertyFilter.checkRule(params.property_type);
-    definedUI.setValueUI('propertyTypeUI',params.property_type)
-
+    appUI.setValueUI('propertyTypeUI',params.property_type)
   }
   if (params.envs) {
-    definedUI.appendUI('envUI',params.envs);
+    appUI.appendUI('envUI',params.envs);
   }
   if (params.bathrooms) {
-    definedUI.appendUI('baniosUI',params.bathrooms)
+    appUI.appendUI('baniosUI',params.bathrooms)
   }
   if(params.rooms){
-    definedUI.appendUI('suiteUI',params.rooms)
+    appUI.appendUI('suiteUI',params.rooms)
+  }
+  if(params.location){
+    predefinedUI.setValueUIById('filter-location',params.location);
   }
 
 });
