@@ -8,6 +8,7 @@ export let removeAll = () => {
   $('#filter-content-id section').remove('#filter-range-price-ars-section');
   $('#filter-content-id section').remove('#filter-operation-type-section');
   $('#filter-content-id section').remove('#filter-property-type-section');
+  $('#filter-sublocation').val("")
 
 };
 

@@ -33,6 +33,16 @@ $('#filter-content-id').on('change', '#filter-property-type', function(e) {
   propertyFilter.checkRule(this.value);
 });
 
+$('#filter-content-id').on('change', '#filter-location', function(e) {
+  removeAll();
+
+  removeAllQuery();
+  aptoFilter.checkRule(0);
+
+  //window.alert(`La url es : ${getUrl()}`);
+  location.href = getUrl();
+});
+
 $('#filter-apto-credito-checkbox').on('change', function(e) {
   removeAll();
   removeAllQuery();
@@ -41,7 +51,7 @@ $('#filter-apto-credito-checkbox').on('change', function(e) {
 
 $('#filtros-btn-aplicar').on('click', function(e) {
   e.preventDefault();
-  window.alert(`La url es : ${getUrl()}`);
+  location.href = getUrl();
 });
 
 $('#button-clear-filter').on('click', function(e) {
@@ -76,5 +86,7 @@ $(document).ready(function() {
   if(params.location){
     predefinedUI.setValueUIById('filter-location',params.location);
   }
-
+  if(params.sublocation){
+    predefinedUI.setValueUIById('filter-sublocation',params.location);
+  }
 });

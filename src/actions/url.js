@@ -32,6 +32,7 @@ export let getUrl = () => {
   let envs = $('#filter-env').val();
   let suite = $('#filter-suite').val();
   let locationProperty = $('#filter-location').val();
+  let sublocationProperty = $('#filter-sublocation').val();
 
   let priceDollar = $('#filter-range-price-dollar').val();
   let priceArs = $('#range-price-ars').val();
@@ -46,6 +47,8 @@ export let getUrl = () => {
     if(rangeDollar.length > 1) appendQuery('price_to',  rangeDollar[1]);
   }
   if(locationProperty) appendQuery('location', locationProperty);
+  if(sublocationProperty) appendQuery('sublocation', sublocationProperty);
+
   if (priceArs) {
     let rangeArs = priceArs.split('-');
     appendQuery('price_from',  priceArs[0]);
