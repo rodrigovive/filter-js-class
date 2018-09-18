@@ -28,12 +28,12 @@ export class predefinedUI {
   appendUI(name, value = false) {
     let ui = this._ui.filter((ui) => ui.name == name);
     if (this.checkExistUI(ui[0].select.id)) {
-      this.setValueUIById(ui[0].select.id, value);
+      predefinedUI.setValueUIById(ui[0].select.id, value);
       return false;
     }
     ui[0].select.appentToElement($('section').last());
     if (value !== false) {
-      this.setValueUIById(ui[0].select.id, value);
+      predefinedUI.setValueUIById(ui[0].select.id, value);
     }
   }
 

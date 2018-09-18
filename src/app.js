@@ -58,8 +58,9 @@ $('#button-clear-filter').on('click', function(e) {
   e.preventDefault();
   removeAll();
   removeAllQuery();
-  $('#filter-apto-credito-checkbox').prop('checked', false);
-  aptoFilter.checkRule(0);
+
+  location.href = getUrl();
+
 });
 
 $(document).ready(function() {
