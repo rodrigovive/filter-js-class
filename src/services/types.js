@@ -8,13 +8,11 @@ let propertyOrderList = {
   '7' : "Local",
   '5' : "Oficina",
 }
-Object.keys(propertyOrderList).map((order)=>{
-  summary.property_types.map((data) => {
+summary.property_types.map((data) => {
     let {count, id, type: name} = data;
-    if(order == id){
-      typesCount.push({count, name, id});
+    if(propertyOrderList[id]){
+        typesCount.push({count, name, id});
     }
-  })
 })
 
 
