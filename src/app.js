@@ -5,6 +5,8 @@ import {appUI,predefinedUI} from './framework/predefinedUI.js';
 import {RulesFilter} from './framework/rules-filter.js';
 import * as propertyService from './services/properties/properties.js'
 import {PropertyRow} from './ui/property-row.js'
+import {Heading} from './ui/heading.js'
+import { Button } from './ui/button.js'
 
 let operationFilter = new RulesFilter('operationType');
 operationFilter.addRule(1, appUI.getUI('rangePriceDollarUI'));
@@ -101,10 +103,32 @@ $(document).ready(function() {
   }
 
   propertyService.findAllProperties().then(properties => {
-    properties.objects.forEach(val => {
+    console.log(properties);
+
+    (() => {
+      let title = `Disponemos de ${properties.meta.total} propiedades`
+      let propertyTitle = new Heading(2,'property-count',title)
+      propertyTitle.appentToElement($('.properties-title'))
+    })()
+
+
+    properties.objects.map(val => {
       let propertyRow = new PropertyRow(val);
       propertyRow.appentToElement($('.properties-list'));
     })
+
+      if(properties.links.last != properties.links.next){
+        let count = properties.meta.total - (properties.meta.current_page * properties.meta.per_page);
+        let title = `Mostrar ${count} propiedades más`;
+        let propertyMoreButton = new Button('property-more',title,'https://www.google.com/')
+        console.log(propertyMoreButton)
+        propertyMoreButton.appentToElement($('.properties-pagination'))
+
+      }
+
+
+
+
   })
 
 
