@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link rel="stylesheet" href="/src/css/mobile.css">
+    <link rel="stylesheet" href="/src/css/frontend.css">
+
     <script src="node_modules/traceur/bin/traceur.js"></script>
     <script src="node_modules/systemjs/dist/system.js"></script>
 
@@ -21,8 +23,22 @@
     <div class="clearfix"></div>
     <!-- Header Container / End -->
 
+    <button id="filters-header-open">Filtrar</button>
 
-    <div id="filter-style-mobile">
+    <div id="titlebar" class="gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h2>Disponemos de 12 propiedades</h2>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="filter-style-mobile" >
         <h2>
             <div class="filters-header">
                 <button id="filters-header-close">
@@ -63,7 +79,7 @@
                 
                 <section id="filter-sublocation-section">
                     <div id="filter-sublocation-content" class="section-selects-content">
-                        <label for="filter-localidad">
+                        <label for="filter-sublocation">
                             Sub Localidades
                         </label>
                         <select tabindex="-1" name="filter-sublocation" id="filter-sublocation">
@@ -117,8 +133,18 @@
 
 
     </div>
-    <!-- Footer / End -->
 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 padding-right-30 properties-list">
+
+                <!-- PROPIEDADES -->
+
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Back To Top Button -->
     <div id="backtotop"><a href="#"></a></div>

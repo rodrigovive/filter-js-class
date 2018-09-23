@@ -14,7 +14,7 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    /*right: -100%;*/
+    right: 0;
     z-index: 1100;
     background-color: #fff;
     -webkit-overflow-scrolling: touch;
@@ -559,4 +559,7 @@
 .filter-shortcut span {
     font-weight: 300;
     font-size: 14px
+}
+#filter-style-mobile.filter-hidden {
+    right: -100%;
 }

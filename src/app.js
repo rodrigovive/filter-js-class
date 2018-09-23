@@ -3,6 +3,8 @@ import {removeAll, removeElementById} from './actions/remove-filter.js';
 import {getUrl, removeAllQuery, getParams} from './actions/url.js';
 import {appUI,predefinedUI} from './framework/predefinedUI.js';
 import {RulesFilter} from './framework/rules-filter.js';
+import * as propertyService from './services/properties/properties.js'
+import {PropertyRow} from './ui/property-row.js'
 
 let operationFilter = new RulesFilter('operationType');
 operationFilter.addRule(1, appUI.getUI('rangePriceDollarUI'));
@@ -60,8 +62,15 @@ $('#button-clear-filter').on('click', function(e) {
   removeAllQuery();
 
   location.href = getUrl();
-
 });
+
+$('#filters-header-close').on('click',function (e) {
+  $('#filter-style-mobile').toggleClass('filter-hidden');
+})
+
+$('#filters-header-open').on('click',function (e) {
+  $('#filter-style-mobile').toggleClass('filter-hidden');
+})
 
 $(document).ready(function() {
   let params = getParams();
@@ -90,4 +99,13 @@ $(document).ready(function() {
   if(params.sublocation){
     predefinedUI.setValueUIById('filter-sublocation',params.location);
   }
+
+  propertyService.findAllProperties().then(properties => {
+    properties.objects.forEach(val => {
+      let propertyRow = new PropertyRow(val);
+      propertyRow.appentToElement($('.properties-list'));
+    })
+  })
+
+
 });
