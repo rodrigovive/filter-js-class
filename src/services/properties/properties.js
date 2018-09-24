@@ -1,12 +1,15 @@
 import request from '../request.js'
-import {getParams} from '../../actions/url.js'
 
-const options = {
-  url: `http://localhost:8000/api/property${document.location.search}`
+const HOST = 'http://localhost:8000'
+
+const url = {
+
+  url: `${HOST}/api/property${document.location.search}`,
+
 }
-export let findAllProperties = () => {
-  console.log(options)
-  return request(options)
-  .then(data => data = JSON.parse(data))
+
+export let findAllProperties = (options = url) => {
+
+  return request(options).then(data => data = JSON.parse(data))
 
 }

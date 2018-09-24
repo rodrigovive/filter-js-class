@@ -9,6 +9,6 @@ export class Button extends BaseElement{
 
   }
   getElementString(){
-    return `<button class="button share-buttons centered-content centered" type="button" href="${this.link}" id="${this._id}">${this.title}</button>`
+    return `<button class="button share-buttons centered-content centered" type="button" data-page="${this.link}" id="${this._id}">${this.title}</button>`
   }
 }

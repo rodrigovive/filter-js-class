@@ -18,18 +18,16 @@ export class PropertyRow extends BaseElement {
     let hrefTag = `${id}-${this.data.publication_title.split(' ').join('-')}`;
     let price = (this.data.operations[0].prices[0].price=="1") ? 'CONSULTAR' : `<span class="price" style="font-size: 20px">${this.data.operations[0].prices[0].price}</span>`
 
-    return `<div class="col-lg-12 col-md-12">
+    return `<div class="col-lg-12 col-md-12 properties-list">
     <div class="listing-item-container list-layout">
         <a href="${hrefTag}" class="listing-item">
             
-            <!-- Image -->
             <div class="listing-item-image">
                     <img src="${imgTag}" alt=""/>
                 <span class="tag hidden-md hidden-lg ">VER PROPIEDAD</span>
             
             </div>
             
-            <!-- Content -->
             <div class="listing-item-content">
                 <div class="listing-badge now-closed" style="text-transform: uppercase; background-color: #307537">${this.data.operations[0].operation_type}</div>
                 

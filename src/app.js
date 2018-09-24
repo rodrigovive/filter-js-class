@@ -3,10 +3,7 @@ import {removeAll, removeElementById} from './actions/remove-filter.js';
 import {getUrl, removeAllQuery, getParams} from './actions/url.js';
 import {appUI,predefinedUI} from './framework/predefinedUI.js';
 import {RulesFilter} from './framework/rules-filter.js';
-import * as propertyService from './services/properties/properties.js'
-import {PropertyRow} from './ui/property-row.js'
-import {Heading} from './ui/heading.js'
-import { Button } from './ui/button.js'
+import { updateProperties as getPropertiesFromLanding } from './actions/update-properties.js'
 
 let operationFilter = new RulesFilter('operationType');
 operationFilter.addRule(1, appUI.getUI('rangePriceDollarUI'));
@@ -38,12 +35,7 @@ $('#filter-content-id').on('change', '#filter-property-type', function(e) {
 });
 
 $('#filter-content-id').on('change', '#filter-location', function(e) {
-  removeAll();
-
   removeAllQuery();
-  aptoFilter.checkRule(0);
-
-  //window.alert(`La url es : ${getUrl()}`);
   location.href = getUrl();
 });
 
@@ -74,13 +66,22 @@ $('#filters-header-open').on('click',function (e) {
   $('#filter-style-mobile').toggleClass('filter-hidden');
 })
 
+
+$('#container-properties').on('click','#property-more',function () {
+  let { dataset : {page} } = document.getElementById('property-more');
+  let options = {
+    url : page
+  }
+  getPropertiesFromLanding(options);
+})
+
+
 $(document).ready(function() {
   let params = getParams();
 
   if (params.operation_type) {
     operationFilter.checkRule(params.operation_type);
     appUI.setValueUI('operationTypeUI',params.operation_type)
-
   }
   if (params.property_type) {
     propertyFilter.checkRule(params.property_type);
@@ -102,34 +103,6 @@ $(document).ready(function() {
     predefinedUI.setValueUIById('filter-sublocation',params.location);
   }
 
-  propertyService.findAllProperties().then(properties => {
-    console.log(properties);
-
-    (() => {
-      let title = `Disponemos de ${properties.meta.total} propiedades`
-      let propertyTitle = new Heading(2,'property-count',title)
-      propertyTitle.appentToElement($('.properties-title'))
-    })()
-
-
-    properties.objects.map(val => {
-      let propertyRow = new PropertyRow(val);
-      propertyRow.appentToElement($('.properties-list'));
-    })
-
-      if(properties.links.last != properties.links.next){
-        let count = properties.meta.total - (properties.meta.current_page * properties.meta.per_page);
-        let title = `Mostrar ${count} propiedades más`;
-        let propertyMoreButton = new Button('property-more',title,'https://www.google.com/')
-        console.log(propertyMoreButton)
-        propertyMoreButton.appentToElement($('.properties-pagination'))
-
-      }
-
-
-
-
-  })
-
+  getPropertiesFromLanding();
 
 });
