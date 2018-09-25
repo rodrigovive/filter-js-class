@@ -67,7 +67,7 @@ $('#filters-header-open').on('click',function (e) {
 })
 
 
-$('#container-properties').on('click','#property-more',function () {
+$('#pagination-container').on('click','#property-more',function () {
   let { dataset : {page} } = document.getElementById('property-more');
   let options = {
     url : page
