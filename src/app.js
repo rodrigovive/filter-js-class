@@ -1,9 +1,10 @@
 import $ from 'jquery';
 import {removeAll, removeElementById} from './actions/remove-filter.js';
 import {getUrl, removeAllQuery, getParams} from './actions/url.js';
-import {appUI,predefinedUI} from './framework/predefinedUI.js';
+import {appUI,mobilePredefinedUI} from './framework/mobilePredefinedUI.js';
 import {RulesFilter} from './framework/rules-filter.js';
 import { updateProperties as getPropertiesFromLanding } from './actions/update-properties.js'
+import {searchSummary} from './framework/webPredefinedUI.js'
 
 let operationFilter = new RulesFilter('operationType');
 operationFilter.addRule(1, appUI.getUI('rangePriceDollarUI'));
@@ -97,12 +98,13 @@ $(document).ready(function() {
     appUI.appendUI('suiteUI',params.rooms)
   }
   if(params.location){
-    predefinedUI.setValueUIById('filter-location',params.location);
+    mobilePredefinedUI.setValueUIById('filter-location',params.location);
   }
   if(params.sublocation){
-    predefinedUI.setValueUIById('filter-sublocation',params.location);
+    mobilePredefinedUI.setValueUIById('filter-sublocation',params.location);
   }
 
+  searchSummary();
   getPropertiesFromLanding();
 
 });

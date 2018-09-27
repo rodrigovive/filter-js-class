@@ -1,14 +1,14 @@
-import {priceDollar} from '../services/filter/range-price-dollar.js';
+import {priceDollar} from '../services/filter/offline/range-price-dollar.js';
 import {Select} from '../ui/select.js';
-import {priceArs} from '../services/filter/range-price-ars.js';
-import {roomAmount} from '../services/filter/room-amount.js';
-import {suiteAmount} from '../services/filter/suite-amount.js';
-import {bathroomAmount} from '../services/filter/bathroom-amount.js';
-import {types} from '../services/filter/types.js';
-import {operations} from '../services/filter/operation.js';
+import {priceArs} from '../services/filter/offline/range-price-ars.js';
+import {roomAmount} from '../services/filter/offline/room-amount.js';
+import {suiteAmount} from '../services/filter/offline/suite-amount.js';
+import {bathroomAmount} from '../services/filter/offline/bathroom-amount.js';
+import {types} from '../services/filter/offline/types.js';
+import {operations} from '../services/filter/offline/operation.js';
 import $ from 'jquery';
 
-export class predefinedUI {
+export class mobilePredefinedUI {
   constructor() {
     this._ui = [];
   }
@@ -28,12 +28,12 @@ export class predefinedUI {
   appendUI(name, value = false) {
     let ui = this._ui.filter((ui) => ui.name == name);
     if (this.checkExistUI(ui[0].select.id)) {
-      predefinedUI.setValueUIById(ui[0].select.id, value);
+      mobilePredefinedUI.setValueUIById(ui[0].select.id, value);
       return false;
     }
     ui[0].select.appentToElement($('section').last());
     if (value !== false) {
-      predefinedUI.setValueUIById(ui[0].select.id, value);
+      mobilePredefinedUI.setValueUIById(ui[0].select.id, value);
     }
   }
 
@@ -54,7 +54,7 @@ export class predefinedUI {
   }
 }
 
-let definedUI = new predefinedUI();
+let definedUI = new mobilePredefinedUI();
 
 definedUI.addUI('rangePriceDollarUI', new Select('range-price-dollar',
     'Rango Para Comprar',
