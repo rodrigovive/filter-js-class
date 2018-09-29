@@ -72,3 +72,4 @@ export let pretierSummaryJSON = (dataSummary) => {
   return dataPretty
 
 }
+

@@ -36,29 +36,67 @@ class webPredefinedUI {
 export let searchSummary = () => {
   getSummaryProperties().then((summaryProperty) => {
     let webSearchFilter = new webPredefinedUI()
-    let operation_types = summaryProperty.operation_types
+    let operationTypes = summaryProperty.operation_types
+    let propertyTypes = summaryProperty.property_types
+    let env = summaryProperty.property_types
+    let bathroom = summaryProperty.property_types
+    let suite = summaryProperty.property_types
+    let locationProperty = summaryProperty.locations
+    let sublocationProperty = summaryProperty.sublocations
     let params = getParams()
     getAllSummaryProperties().then((allSummaryProperty) => {
       if (params.operation_type) {
-        operation_types = allSummaryProperty.operation_types
+        operationTypes = allSummaryProperty.operation_types.filter(val => {
+          return val.id != params.operation_type;
+        })
+      }
+      if (params.property_type) {
+        operationTypes = allSummaryProperty.property_types.filter(val => {
+          return val.id != params.property_type;
+        })
+      }
+      if (params.envs) {
+        env = allSummaryProperty.room_amount.filter(val => {
+          return val.id != params.envs;
+        })
+      }
+      if (params.bathrooms) {
+        bathroom = allSummaryProperty.bathroom_amount.filter(val => {
+          return val.id != params.bathrooms;
+        })
+      }
+      if(params.rooms){
+        suite = allSummaryProperty.suite_amount.filter(val => {
+          return val.id != params.rooms;
+        })
+      }
+      if(params.location){
+        locationProperty = allSummaryProperty.locations.filter(val => {
+          return val.id != params.location;
+        })
+      }
+      if(params.sublocation){
+        sublocationProperty = allSummaryProperty.sublocations.filter(val => {
+          return val.id != params.sublocation;
+        })
       }
       webSearchFilter.addUI('bathrooms', 'Banios',
-        summaryProperty.bathroom_amount).
+        bathroom).
         appendUI()
       webSearchFilter.addUI('ages', 'Antiguedad', summaryProperty.age).appendUI()
-      webSearchFilter.addUI('rooms', 'Dormitorios', summaryProperty.suite_amount).
+      webSearchFilter.addUI('rooms', 'Dormitorios', suite).
         appendUI()
-      webSearchFilter.addUI('envs', 'Ambientes', summaryProperty.room_amount).
+      webSearchFilter.addUI('envs', 'Ambientes', env).
         appendUI()
       webSearchFilter.addUI('sublocation-bar', 'Sub Localidades',
-        summaryProperty.sublocations).appendUI()
+        sublocationProperty).appendUI()
       webSearchFilter.addUI('location-select', 'Localidad',
-        summaryProperty.locations).
+        locationProperty).
         appendUI()
       webSearchFilter.addUI('operation-type', 'Tipo de Operacion',
-        operation_types).appendUI()
+        operationTypes).appendUI()
       webSearchFilter.addUI('property-type', 'Tipo de Propiedad',
-        summaryProperty.property_types).appendUI()
+        propertyTypes).appendUI()
     })
 
   })

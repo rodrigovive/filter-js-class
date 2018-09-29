@@ -13,7 +13,7 @@ export class SidebarFilter extends BaseElement {
     console.log(this.data);
     let liTags = ''
     for (let data of this.data) {
-      liTags += `<li class="${this._id}" value="${data.id}"><a class="listing-items-search" style="cursor: pointer;">${data.name} (${data.count ? data.count : ''})</a></li>`
+      liTags += `<li class="${this._id}" value="${data.id}"><a class="listing-items-search" style="cursor: pointer;">${data.name} ${data.count ? `( ${data.count} )` : ''}</a></li>`
     }
     return `<div class="col-md-12">
               <h4>${this.title}</h4>
