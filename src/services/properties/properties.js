@@ -1,6 +1,6 @@
 import request from '../request.js'
 
-const HOST = 'http://localhost:8000'
+const HOST = 'http://landing.com.ar'
 
 const url = {
 
